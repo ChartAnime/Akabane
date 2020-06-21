@@ -1,0 +1,8 @@
+{
+	"extends": "bamboo",
+	"rules": {
+		"@typescript-eslint/no-throw-literal": 0,
+		"@typescript-eslint/restrict-plus-operands": 0,
+		"@typescript-eslint/naming-convention": 0
+	}
+}
