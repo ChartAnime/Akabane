@@ -1,9 +1,15 @@
-import { ApolloServer } from 'apollo-server';
-import * as TypeORM from 'typeorm';
+import { AkabaneServer } from '@lib/AkabaneServer';
+import { ApolloServerExpressConfig } from 'apollo-server-express';
+import TypeORM from 'typeorm';
 
-export default class Akabane {
+export interface AkabaneConfig {
+	gqlServer: ApolloServerExpressConfig;
+	database: TypeORM.ConnectionOptions;
+}
 
-    public server!: ApolloServer;
-    public db!: TypeORM.Connection;
+export class Akabane {
+
+	public server!: AkabaneServer;
+	public db!: TypeORM.Connection;
 
 }

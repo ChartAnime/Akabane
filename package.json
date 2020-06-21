@@ -2,7 +2,15 @@
   "isProduction": false,
   "name": "akabane",
   "version": "0.0.1",
-  "description": "",
+  "description": "Anime and Manga data aggregator API. Exposed using GraphQL.",
+  "keywords": [
+    "anime",
+    "manga",
+    "aggregator",
+    "api",
+    "graphql",
+    "gql"
+  ],
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -b src",
@@ -11,12 +19,18 @@
   "author": "QuantumlyTangled",
   "license": "MIT",
   "dependencies": {
+    "@apollographql/graphql-playground-html": "^1.6.26",
+    "@klasa/console": "^0.0.3",
+    "@klasa/utils": "^0.0.8",
     "apollo-server": "^2.15.0",
-    "dotenv": "^8.2.0",
+    "apollo-server-express": "^2.15.0",
+    "express": "^4.17.1",
+    "fuse.js": "^6.2.1",
     "graphql": "^15.1.0",
     "module-alias": "^2.2.2",
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
+    "type-graphql": "^1.0.0-rc.2",
     "typeorm": "^0.2.25"
   },
   "devDependencies": {
@@ -24,7 +38,7 @@
     "@graphql-codegen/schema-ast": "^1.15.4",
     "@graphql-codegen/typescript": "^1.15.4",
     "@graphql-codegen/typescript-resolvers": "^1.15.4",
-    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
     "@types/module-alias": "^2.0.0",
     "@types/node": "^14.0.13",
     "@types/pg": "^7.14.3",
