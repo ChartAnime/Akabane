@@ -649,5 +649,8 @@ MigrationBackup/
 
 # End of https://www.toptal.com/developers/gitignore/api/typings,dotnetcore,dotenv,visualstudiocode,node,webstorm,rider,visualstudio,yarn
 
-# Typescript related
+# Typescript build files
 /build/
+
+# Typedoc build files
+/docs/

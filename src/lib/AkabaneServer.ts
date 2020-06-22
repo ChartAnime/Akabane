@@ -5,22 +5,23 @@ import http from 'http';
 
 export class AkabaneServer extends ApolloServer {
 
-	public readonly app!: Express;
-	public readonly aConfig!: ApolloServerExpressConfig;
-	protected httpServer?: http.Server;
+	public app!: Express;
+	public httpServer!: http.Server;
+	private readonly aConfig!: ApolloServerExpressConfig;
 
-	public constructor(config: ApolloServerExpressConfig) {
+	public constructor(config: ApolloServerExpressConfig, app?: Express, httpServer?: http.Server) {
 		super(config);
 
 		this.aConfig = config;
-		this.app = express();
+		if (httpServer) this.httpServer = httpServer;
+		this.app = app || express();
 	}
 
-	public recreate(config?: ApolloServerExpressConfig): AkabaneServer {
+	public recreate(config: ApolloServerExpressConfig): AkabaneServer {
 		return new AkabaneServer(mergeDefault(
-			this.aConfig as unknown as Record<string | number | symbol, unknown>,
-			config as unknown as Record<string | number | symbol, unknown>
-		));
+			this.aConfig as Record<string | number | symbol, unknown>,
+			config as Record<string | number | symbol, unknown>
+		), this.app, this.httpServer);
 	}
 
 	public async listen(...opts: Array<any>): Promise<void> {
@@ -40,6 +41,10 @@ export class AkabaneServer extends ApolloServer {
 			httpServer.once('listening', resolve);
 			httpServer.listen(...(opts.length ? opts : [{ port: 4000 }]));
 		});
+	}
+
+	public get getAConfig(): ApolloServerExpressConfig {
+		return this.aConfig;
 	}
 
 }

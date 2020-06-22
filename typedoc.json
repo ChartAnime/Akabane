@@ -1,0 +1,6 @@
+{
+    "inputFiles": ["./src"],
+    "tsconfig": "./src/tsconfig.json",
+    "mode": "file",
+    "out": "docs"
+}
