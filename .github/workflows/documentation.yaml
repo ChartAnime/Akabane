@@ -43,7 +43,7 @@ jobs:
         TARGET_BRANCH="docs-internal"
         git clone $REPO out -b $TARGET_BRANCH
 
-        yarn docs:html
+        yarn documentation:build
 
         echo -e "\n# Move the generated docs to the newly-checked-out repo, to be committed and pushed"
         rsync -vau docs/ out/
