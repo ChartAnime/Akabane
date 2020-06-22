@@ -40,7 +40,7 @@ jobs:
         fi
 
         echo -e "\n# Checkout the repo in the target branch"
-        TARGET_BRANCH="docs-internal"
+        TARGET_BRANCH="gh-pages"
         git clone $REPO out -b $TARGET_BRANCH
 
         yarn documentation:build
