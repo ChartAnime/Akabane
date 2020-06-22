@@ -17,6 +17,10 @@ export class AkabaneServer extends ApolloServer {
 		this.app = app || express();
 	}
 
+	/**
+	 * Recrates the current server instance with the current and passed config options combined
+	 * @param config New config additions
+	 */
 	public recreate(config: ApolloServerExpressConfig): AkabaneServer {
 		return new AkabaneServer(mergeDefault(
 			this.aConfig as Record<string | number | symbol, unknown>,
