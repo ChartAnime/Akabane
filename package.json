@@ -14,9 +14,11 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -b src",
-    "prepare": "yarn run graphql:types:anilist:remove && yarn run graphql:types:anilist",
+    "types:prepare": "yarn run graphql:types::remove && yarn run graphql:types:",
     "documentation:build": "typedoc",
+    "graphql:types:": "yarn run graphql:types:anilist",
     "graphql:types:anilist": "yarn graphql-codegen --config ./codegen.anilist.yml",
+    "graphql:types::remove": "yarn run graphql:types:anilist:remove",
     "graphql:types:anilist:remove": "yarn rimraf src/lib/types/graphql-anilist.ts"
   },
   "author": "QuantumlyTangled",
