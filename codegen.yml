@@ -1,0 +1,17 @@
+overwrite: true
+schema: "localhost:4000"
+generates:
+  ./generated/ts/graphql-akabane.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      scalars:
+        JSONObject: "Record<PropertyKey, any>"
+      constEnums: true
+      immutableTypes: true
+  ./generated/ts/graphql-akabane.graphql:
+    plugins:
+      - schema-ast
+    config:
+      commentDescriptions: true
