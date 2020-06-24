@@ -654,3 +654,6 @@ MigrationBackup/
 
 # Typedoc build files
 /docs/
+
+# Local configs
+config.ts

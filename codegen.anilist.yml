@@ -1,12 +1,12 @@
 overwrite: true
 schema: https://graphql.anilist.co
 generates:
-    ./src/lib/types/graphql-anilist.ts:
-      plugins:
-        - typescript
-        - typescript-resolvers
-      config:
-        scalars:
-          JSONObject: "Record<PropertyKey, any>"
-        constEnums: true
-        immutableTypes: true
+  ./src/lib/types/graphql-anilist.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      scalars:
+        JSONObject: "Record<PropertyKey, any>"
+      constEnums: true
+      immutableTypes: true

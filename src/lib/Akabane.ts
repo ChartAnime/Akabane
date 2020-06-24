@@ -1,6 +1,7 @@
 import { AkabaneServer } from '@lib/AkabaneServer';
 import { GraphQLSchema } from 'graphql';
 import { ApolloServerExpressConfig } from 'apollo-server-express';
+import { mergeDefault } from '@klasa/utils';
 import TypeORM from 'typeorm';
 
 export interface AkabaneConfig {
@@ -26,6 +27,14 @@ export class Akabane {
 			schema
 		});
 		this.config.gqlServer = this.server.getAConfig;
+	}
+
+	public async connectDatabase() {
+		this.db = await TypeORM.createConnection(mergeDefault(this.config.database as unknown as Record<string | number | symbol, unknown>, {
+			entities: [
+				''
+			]
+		}) as unknown as TypeORM.ConnectionOptions);
 	}
 
 }

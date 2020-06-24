@@ -57,7 +57,7 @@
     "typescript": "^3.9.5"
   },
   "_moduleAliases": {
-    "@utils": "build/lib/util",
+    "@util": "build/lib/util",
     "@lib": "build/lib",
     "@root": "build"
   }
