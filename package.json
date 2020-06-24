@@ -14,6 +14,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -b src",
+    "docker:start": "node index.js",
     "types:prepare": "yarn run graphql:types::remove && yarn run graphql:types:",
     "documentation:build": "typedoc",
     "graphql:types:": "yarn run graphql:types:anilist",
