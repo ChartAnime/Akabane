@@ -14,8 +14,10 @@
   "main": "build/index.js",
   "scripts": {
     "build": "tsc -b src",
+    "prepare": "yarn run graphql:types:anilist:remove && yarn run graphql:types:anilist",
     "documentation:build": "typedoc",
-    "graphql:types:anilist": "yarn graphql-codegen --config ./codegen.anilist.yml"
+    "graphql:types:anilist": "yarn graphql-codegen --config ./codegen.anilist.yml",
+    "graphql:types:anilist:remove": "yarn rimraf src/lib/types/graphql-anilist.ts"
   },
   "author": "QuantumlyTangled",
   "license": "MIT",
@@ -47,6 +49,7 @@
     "@typescript-eslint/parser": "^3.3.0",
     "eslint": "^7.3.0",
     "eslint-config-bamboo": "^5.1.0",
+    "rimraf": "^3.0.2",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.5"
   },

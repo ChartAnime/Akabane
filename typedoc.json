@@ -1,6 +1,7 @@
 {
     "inputFiles": ["./src"],
     "tsconfig": "./src/tsconfig.json",
+    "name": "Akabane",
     "mode": "file",
     "out": "docs"
 }

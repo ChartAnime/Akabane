@@ -1,3 +1,4 @@
 node_modules/
 build/
 apollo.config.js
+src/lib/types/graphql-anilist.ts

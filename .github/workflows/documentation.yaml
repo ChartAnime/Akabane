@@ -22,7 +22,9 @@ jobs:
         path: node_modules
         key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
     - name: Install Dependencies
-      run: yarn
+      run: yarn --frozen-lockfile
+    - name: Prepare GraphQL types
+      run: yarn run prepare
     - name: Publish Docs
       run: |
         #!/bin/bash
