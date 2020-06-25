@@ -23,8 +23,13 @@ jobs:
         key: ${{ runner.os }}-12-${{ hashFiles('**/yarn.lock') }}
     - name: Install Dependencies
       run: yarn --ignore-scripts --frozen-lockfile
-    - name: Prepare GraphQL types
+    - name: Prepare GraphQL Types
       run: yarn run types:prepare
+    - name: Prepare Config File
+      run: |
+        #!/bin/bash
+
+        cp /src/config.example.ts /src/config.ts
     - name: Publish Docs
       run: |
         #!/bin/bash
