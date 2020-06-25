@@ -8,7 +8,8 @@ export class Anime extends BaseEntity {
 	@Column('bigint', { primary: true, name: 'id', generated: 'increment' })
 	public id?: BigInt;
 
-	@OneToOne(type => LanguagedNames)
+	@OneToOne(() => LanguagedNames)
 	@JoinColumn()
 	public names?: LanguagedNames;
+
 }
