@@ -29,7 +29,7 @@ jobs:
       run: |
         #!/bin/bash
 
-        cp /src/config.example.ts /src/config.ts
+        cp src/config.example.ts src/config.ts
     - name: Publish Docs
       run: |
         #!/bin/bash
