@@ -1,10 +1,13 @@
 {
 	"extends": "../tsconfig.json",
 	"compilerOptions": {
+		"experimentalDecorators": true,
 		"outDir": "../build",
 		"rootDir": ".",
 		"baseUrl": ".",
 		"paths": {
+			"@orm/*": ["lib/orm/*"],
+			"@entities/*": ["lib/orm/entities/*"],
 			"@util/*": ["lib/util/*"],
 			"@lib/*": ["lib/*"],
 			"@root/*": ["*"]

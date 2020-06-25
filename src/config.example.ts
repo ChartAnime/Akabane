@@ -1,5 +1,5 @@
-import { Config as ConfigType } from './src/lib/types/Config';
-import { DatabaseConfig } from './src/lib/util/ConfigEnums';
+import { Config as ConfigType } from './lib/types/Config';
+import { DatabaseConfig } from './lib/util/ConfigEnums';
 
 export const Config: ConfigType = {
 	database: {
@@ -10,4 +10,4 @@ export const Config: ConfigType = {
 		password: process.env[DatabaseConfig.Password] || '',
 		database: process.env[DatabaseConfig.Database] || 'akabane'
 	}
-}
+};

@@ -57,6 +57,8 @@
     "typescript": "^3.9.5"
   },
   "_moduleAliases": {
+    "@orm": "build/lib/orm",
+    "@entities": "build/lib/orm/entities",
     "@util": "build/lib/util",
     "@lib": "build/lib",
     "@root": "build"

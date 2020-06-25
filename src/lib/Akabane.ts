@@ -2,10 +2,11 @@ import { AkabaneServer } from '@lib/AkabaneServer';
 import { GraphQLSchema } from 'graphql';
 import { ApolloServerExpressConfig } from 'apollo-server-express';
 import { mergeDefault } from '@klasa/utils';
-import TypeORM from 'typeorm';
+import * as TypeORM from 'typeorm';
+import { EntitiesList } from '@orm/EntitiesList';
 
 export interface AkabaneConfig {
-	gqlServer: ApolloServerExpressConfig;
+	gqlServer?: ApolloServerExpressConfig;
 	database: TypeORM.ConnectionOptions;
 }
 
@@ -19,7 +20,7 @@ export class Akabane {
 	public constructor(config: AkabaneConfig) {
 		this.config = config;
 
-		this.server = new AkabaneServer(this.config.gqlServer);
+		// this.server = new AkabaneServer(this.config.gqlServer!);
 	}
 
 	public addSchema(schema: GraphQLSchema) {
@@ -30,11 +31,12 @@ export class Akabane {
 	}
 
 	public async connectDatabase() {
-		this.db = await TypeORM.createConnection(mergeDefault(this.config.database as unknown as Record<string | number | symbol, unknown>, {
+		this.db = await TypeORM.createConnection(mergeDefault({
+			synchronize: true,
 			entities: [
-				''
+				...EntitiesList
 			]
-		}) as unknown as TypeORM.ConnectionOptions);
+		}, this.config.database as unknown as Record<string | number | symbol, unknown>) as unknown as TypeORM.ConnectionOptions);
 	}
 
 }
