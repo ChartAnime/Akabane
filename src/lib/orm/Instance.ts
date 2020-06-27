@@ -13,6 +13,7 @@ export const config: PostgresConnectionOptions = {
 	entities: [
 		...EntitiesList
 	],
+	synchronize: true,
 	logging: true
 };
 

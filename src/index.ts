@@ -3,6 +3,7 @@ import 'module-alias/register';
 
 import { Akabane } from '@lib/Akabane';
 import { LanguagedNames } from '@entities/LanguagedNames';
+import { Anime } from '@orm/entities/Anime';
 
 const akabane = new Akabane({});
 
@@ -14,7 +15,10 @@ akabane.start()
 		test.JapaneseNative = '3';
 		test.JapaneseRomaji = '4';
 
-		await akabane.dbSet.languagedNames.create(test);
+		const anim = new Anime();
+		anim.name = test;
+
+		await akabane.dbSet.animes.insert(anim);
 
 		console.log('Started');
 	});

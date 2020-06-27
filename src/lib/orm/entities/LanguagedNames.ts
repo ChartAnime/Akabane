@@ -1,9 +1,9 @@
-import { Column, Entity, BaseEntity } from 'typeorm';
+import { Column, Entity, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('languaged_names', { schema: 'public' })
 export class LanguagedNames extends BaseEntity {
 
-	@Column('character varying', { primary: true, name: 'id', generated: 'uuid' })
+	@PrimaryGeneratedColumn()
 	public id?: string;
 
 	@Column('varchar', { name: 'english' })
